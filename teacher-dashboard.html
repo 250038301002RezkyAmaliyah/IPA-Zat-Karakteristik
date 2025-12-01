@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Guru</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html">🏠 Beranda</a>
+            <a href="materi.html">📖 Materi</a>
+            <a href="video.html">🎬 Video</a>
+            <a href="lkpd.html">📝 LKPD</a>
+            <a href="quiz.html">🧠 Kuis</a>
+            <a href="#" id="logout-btn">🚪 Logout</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>📊 Dashboard Guru</h1>
+        <p id="dashboard-status">Memeriksa hak akses...</p>
+        
+        <div id="dashboard-content" style="display: none;">
+            <div class="card">
+                <h2>Hasil Kuis Siswa</h2>
+                <p>Data diambil dari tabel `quiz_submissions` Supabase.</p>
+                <button class="btn btn-secondary" onclick="exportCSV()">⬇️ Export CSV</button>
+                <div class="table-responsive mt-3">
+                    <table id="quiz-results-table">
+                        <thead>
+                            <tr>
+                                <th>Nama Siswa (Email)</th>
+                                <th>Skor</th>
+                                <th>Waktu Submit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="card">
+                <h2>Rubrik Penilaian Keterampilan Mengkomunikasikan</h2>
+                <p>Digunakan sebagai panduan penilaian guru (sesuai file Rubrik Penilaian ).</p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Indikator</th>
+                                <th>Sedang Berkembang</th>
+                                <th>Sesuai Ekspektasi</th>
+                                <th>Melebihi Ekspektasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Gaya Bekomunikasi</td>
+                                <td>Bahasa yang digunakan kaku (tidak formal) dan tidak mudah dipahami </td>
+                                <td>Bahasa yang digunakan kaku (tidak formal) tetapi mudah dipahami </td>
+                                <td>Bahasa yang digunakan luwes, formal dan mudah dipahami, serta menggunakan bahasa tubuh yang mendukung </td>
+                            </tr>
+                            <tr>
+                                <td>Kelengkapan Informasi</td>
+                                <td>Informasi belum menjawab semua pertanyaan dengan lengkap </td>
+                                <td>Informasi yang disampaikan menjawab semua pertanyaan dengan lengkap </td>
+                                <td>Informasi yang disampaikan lengkap dan memberikan informasi atau pengetahuan baru yang bermanfaat (sumber kredibel) </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Kriteria Penilaian</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Predikat</th>
+                                <th>Nilai</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sangat Baik (SB)</td>
+                                <td>$80 \le SB \le 100$ </td>
+                            </tr>
+                            <tr>
+                                <td>Baik (B)</td>
+                                <td>$70 \le B \le 79$ </td>
+                            </tr>
+                            <tr>
+                                <td>Cukup (C)</td>
+                                <td>$60 \le C \le 69$ </td>
+                            </tr>
+                            <tr>
+                                <td>Kurang (K)</td>
+                                <td>$< 60$ </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><strong>Nilai Akhir Keterampilan:</strong> $\frac{\text{Skor Diperoleh}}{6} \times 100$ </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><strong>Nilai Akhir Sikap:</strong> $\frac{\text{Skor Diperoleh}}{24} \times 100$ </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="assets/js/supabase.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

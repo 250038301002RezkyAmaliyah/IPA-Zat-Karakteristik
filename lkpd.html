@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD Digital - Zat dan Karakteristiknya</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html">🏠 Beranda</a>
+            <a href="materi.html">📖 Materi</a>
+            <a href="video.html">🎬 Video</a>
+            <a href="lkpd.html">📝 LKPD</a>
+            <a href="quiz.html">🧠 Kuis</a>
+            <a href="login.html" id="nav-login">🔑 Login Guru</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>📝 Lembar Kerja Peserta Didik (LKPD) Digital</h1>
+        <div class="card">
+            <p><strong>Petunjuk:</strong> Isi identitas kelompok dan jawablah pertanyaan di bawah ini berdasarkan hasil diskusi kelompok Anda dan kegiatan praktikum sederhana yang telah dilakukan.</p>
+            <hr>
+            <form id="lkpd-form">
+                <h2>Identitas Kelompok</h2>
+                <label for="kelompok">Kelompok:</label>
+                <input type="text" id="kelompok" name="kelompok" required>
+
+                <label for="kelas">Kelas:</label>
+                <input type="text" id="kelas" name="kelas" required>
+
+                <label for="anggota">Anggota (Nama-nama):</label>
+                <textarea id="anggota" name="anggota" rows="3" required></textarea>
+
+                <hr>
+
+                <h2>A. Pengertian Zat dan Karakteristiknya</h2>
+                <label for="jawaban-1">1. Berdasarkan video dan bacaan, apa yang dimaksud dengan 'zat'? (Mengacu pada konten PDF )</label>
+                <textarea id="jawaban-1" name="jawaban-1" rows="4" required></textarea>
+
+                <h2>B. Hasil Praktikum (Wujud Zat)</h2>
+                <p>Isi tabel berdasarkan pengamatan wujud zat (Padat, Cair, Gas).</p>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Benda</th>
+                                <th>Wujud Zat (Padat/Cair/Gas)</th>
+                                <th>Ciri-ciri Utama</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Air Minum</td>
+                                <td><input type="text" name="benda-1-wujud" value="Cair" readonly></td>
+                                <td><input type="text" name="benda-1-ciri" placeholder="Bentuk berubah, volume tetap"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><input type="text" name="benda-2-nama" placeholder="Contoh Zat Padat"></td>
+                                <td><input type="text" name="benda-2-wujud" placeholder="Padat"></td>
+                                <td><input type="text" name="benda-2-ciri"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><input type="text" name="benda-3-nama" placeholder="Contoh Zat Gas"></td>
+                                <td><input type="text" name="benda-3-wujud" placeholder="Gas"></td>
+                                <td><input type="text" name="benda-3-ciri"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>C. Perubahan Zat</h2>
+                <label for="jawaban-c1">1. Jelaskan perbedaan mendasar antara Perubahan Fisika dan Perubahan Kimia! Berikan 2 contoh masing-masing.</label>
+                <textarea id="jawaban-c1" name="jawaban-c1" rows="4" required></textarea>
+                
+                <hr>
+                <p id="lkpd-message" style="color: green; font-weight: bold;"></p>
+                <button type="button" class="btn btn-primary" onclick="downloadLKPD('txt')">⬇️ Download Jawaban (TXT)</button>
+                <button type="button" class="btn btn-secondary" onclick="downloadLKPD('pdf')">⬇️ Download Jawaban (PDF - Experimental)</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
